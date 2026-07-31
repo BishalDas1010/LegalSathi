@@ -1,0 +1,46 @@
+# FastAPI
+fastapi
+uvicorn[standard]
+python-dotenv
+python-multipart
+
+# Database
+sqlalchemy
+psycopg2-binary
+alembic
+
+# Authentication
+python-jose[cryptography]
+passlib[bcrypt]
+
+# LangChain
+langchain
+langgraph
+langchain-community
+langchain-mistralai
+
+# Vector Database
+chromadb
+
+# Embeddings
+sentence-transformers
+
+# PDF Processing
+pymupdf
+pypdf
+
+# RAG
+tiktoken
+
+# Utilities
+httpx
+pydantic-settings
+
+# Logging
+loguru
+
+
+# OCR 
+pytesseract
+pillow
+pdf2image
