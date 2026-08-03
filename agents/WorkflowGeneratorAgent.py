@@ -107,21 +107,21 @@ def plan_workflow(query: str, document: bool) -> list:
         else:
             raise ValueError("Could not parse JSON from planner response.")
 
-# Example usage
-if __name__ == "__main__":
+# # Example usage
+# if __name__ == "__main__":
 
-    query1 = "Analyze this NDA and identify risky clauses."
-    document1 = True
-    workflow1 = plan_workflow(query1, document1)
-    print("Workflow for NDA analysis:", workflow1)
+#     query1 = "Analyze this NDA and identify risky clauses."
+#     document1 = True
+#     workflow1 = plan_workflow(query1, document1)
+#     print("Workflow for NDA analysis:", workflow1)
 
  
-    query2 = "Can my landlord evict me without notice?"
-    document2 = False
-    workflow2 = plan_workflow(query2, document2)
-    print("Workflow for eviction question:", workflow2)
+#     query2 = "Can my landlord evict me without notice?"
+#     document2 = False
+#     workflow2 = plan_workflow(query2, document2)
+#     print("Workflow for eviction question:", workflow2)
 
-    query3 = "Analyze this employment agreement."
-    document3 = True
-    workflow3 = plan_workflow(query3, document3)
-    print("Workflow for employment agreement:", workflow3)
+#     query3 = "Analyze this employment agreement."
+#     document3 = True
+#     workflow3 = plan_workflow(query3, document3)
+#     print("Workflow for employment agreement:", workflow3)
