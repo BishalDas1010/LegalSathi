@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# Test directory
+test/
+
+# Python cache
+__pycache__/
+agents/__pycache__/
+
+# Python compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

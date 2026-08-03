@@ -6,10 +6,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_mistralai import ChatMistralAI
 from dotenv import load_dotenv
 import os
-load_dotenv()
-API_KEY = os.getenv("API_KEY")
-if API_KEY is None:
-    print("key is not found ")
+from langchain_core.prompts import ChatPromptTemplate
+
 
 
 class IntentState(TypedDict):
@@ -17,13 +15,13 @@ class IntentState(TypedDict):
     intent : str
 
 
+class IntentClassifier:
 
-llm = ChatMistralAI(
-    model="mistral-small-latest",
-    api_key=API_KEY
-)
-#prompt 
-prompt = ChatPromptTemplate.from_template("""
+    def __init__(self, query: str, llm):
+        self.query = query
+        self.llm = llm
+
+        self.prompt = ChatPromptTemplate.from_template("""
 You are an Intent Classifier for a Legal AI Assistant.
 
 Your job is ONLY to classify the user's intent.
@@ -46,26 +44,11 @@ User Query:
 {query}
 """)
 
-def intent_classifier(state: IntentState):
+    def intent_classifier(self):
+        chain = self.prompt | self.llm
 
-    chain = prompt | llm
+        response = chain.invoke({
+            "query": self.query
+        })
 
-    response = chain.invoke({
-        "query": state["query"]
-    })
-
-    intent = response.content.strip()
-
-    return {
-        "query": state["query"],
-        "intent": intent
-    }
-if __name__ == "__main__":
-
-    state = {
-        "query": "Find risky clauses in my employment agreement."
-    }
-
-    result = intent_classifier(state)
-
-    print(result)
+        return response.content.strip()
